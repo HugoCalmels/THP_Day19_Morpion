@@ -1,0 +1,8 @@
+source = 'https://rubygems.org'
+gem 'pry'
+gem 'rspec'
+gem 'json'
+gem 'dotenv'
+gem 'colorize'
+gem 'google_drive'
+gem 'rubocop'

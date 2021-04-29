@@ -11,4 +11,8 @@ class Player
     print ">>> "
     @symbole_player = gets.chomp
   end
+
+  def get_sym
+    return @symbole_player
+  end
 end

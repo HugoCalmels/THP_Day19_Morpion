@@ -8,19 +8,23 @@ class Board
     #Quand la classe s'initialize, elle doit créer 9 instances BoardCases
     #Ces instances sont rangées dans un array/hash qui est l'attr_accessor de la classe
     # Definition des cases
-    @arr_9cases = [Boardcase.new([0][0], " "),
-                   Boardcase.new([0][1], " "),
-                   Boardcase.new([0][2], " "),
-                   Boardcase.new([1][0], " "),
-                   Boardcase.new([1][1], " "),
-                   Boardcase.new([1][2], " "),
-                   Boardcase.new([2][0], " "),
-                   Boardcase.new([2][1], " "),
-                   Boardcase.new([2][2], " ")]
+    @arr_9cases = [Boardcase.new(0, " "),
+                   Boardcase.new(1, " "),
+                   Boardcase.new(2, " "),
+                   Boardcase.new(3, " "),
+                   Boardcase.new(4, " "),
+                   Boardcase.new(5, " "),
+                   Boardcase.new(6, " "),
+                   Boardcase.new(7, " "),
+                   Boardcase.new(8, " ")]
+  end
+
+  def get_arr9
+    return@arr_9cases
   end
 
   def dsp_board
-    @show1.display
+    #@show1.display
   end
 
   def play_turn
@@ -31,5 +35,24 @@ class Board
 
   def victory?
     #TO DO : une méthode qui vérifie le plateau et indique s'il y a un vainqueur ou match nul
+    # puts @arr_9cases[1].get_value  ==> ok
+    if (((@arr_9cases[1].get_value == @arr_9cases[4].get_value) and (@arr_9cases[1].get_value == @arr_9cases[7].get_value) and (@arr_9cases[7].get_value != " ")) ||
+        ((@arr_9cases[3].get_value == @arr_9cases[4].get_value) and (@arr_9cases[3].get_value == @arr_9cases[5].get_value) and (@arr_9cases[5].get_value != " ")) ||
+        ((@arr_9cases[0].get_value == @arr_9cases[3].get_value) and (@arr_9cases[0].get_value == @arr_9cases[6].get_value) and (@arr_9cases[6].get_value != " ")) ||
+        ((@arr_9cases[2].get_value == @arr_9cases[5].get_value) and (@arr_9cases[2].get_value == @arr_9cases[8].get_value) and (@arr_9cases[8].get_value != " ")) ||
+        ((@arr_9cases[1].get_value == @arr_9cases[0].get_value) and (@arr_9cases[1].get_value == @arr_9cases[2].get_value) and (@arr_9cases[2].get_value != " ")) ||
+        ((@arr_9cases[6].get_value == @arr_9cases[8].get_value) and (@arr_9cases[6].get_value == @arr_9cases[7].get_value) and (@arr_9cases[7].get_value != " ")) ||
+        ((@arr_9cases[0].get_value == @arr_9cases[4].get_value) and (@arr_9cases[0].get_value == @arr_9cases[8].get_value) and (@arr_9cases[8].get_value != " ")) ||
+        ((@arr_9cases[6].get_value == @arr_9cases[4].get_value) and (@arr_9cases[6].get_value == @arr_9cases[2].get_value) and (@arr_9cases[2].get_value != " ")))
+      return true
+    end
+  end
+
+  def info_arr9
+    str = " "
+    @arr_9cases.each do |bob|
+      str = str + bob.get_value.to_s + " "
+    end
+    return str
   end
 end

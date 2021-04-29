@@ -4,7 +4,11 @@ class Boardcase
 
   def initialize(pos, value)
     #TO DO : doit régler sa valeur, ainsi que son numéro de case
-    @case_pos = case_pos
-    @case_value = case_value
+    @case_pos = pos
+    @case_value = value
+  end
+
+  def get_value
+    return @case_value
   end
 end
